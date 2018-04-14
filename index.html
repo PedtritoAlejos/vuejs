@@ -4,10 +4,55 @@
     <title>mi título</title>
     <meta charset='UTF-8'>
     <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4' crossorigin='anonymous'>
-    <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js' integrity='sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm' crossorigin='anonymous'></script>
+   
 </head>
 <body>
-    <header>
-        <h1>Título del contenido </h1>
-    </header> 
+    
+
+    <div class="container-fluid">
+            <div class="p-3 mb-2 bg-primary text-white">Probando Vue 2.2.0</div>
+           
+    </div>
+
+    <div id="main">
+        <div class="container">
+          
+                <div class="card">
+                        <div class="card-header">
+                         Imprimer arreglo y agregar valor
+                        </div>
+                        <div class="card-body">
+                                <ul>
+                                    <li v-for="item in people"> {{ item }} </li>
+                                </ul>   
+                                <input class="form-control" class="col-sm" v-model="name" v-on:keyup.enter="addName">
+                        </div>
+                </div>
+                        
+                            
+                      
+           
+        </div>    
+            
+              
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.0/vue.js"></script>
+
+    <script type="text/javascript">
+        new Vue({
+            el:'#main',
+            data:{
+                people: ['Lynda','Isabella','Diana','Luisa']
+            },
+            name:'',
+            methods:
+            {
+                addName:  function() {
+                        this.people.push(this.name);
+                        this.name='';
+                    }
+            }
+        });
+    </script>
 </body>
