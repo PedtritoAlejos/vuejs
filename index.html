@@ -14,28 +14,40 @@
            
     </div>
 
-    <div id="main">
-        <div class="container">
+    
+        <div class="container" id="main">
           
                 <div class="card">
                         <div class="card-header">
                          Imprimer arreglo y agregar valor
                         </div>
                         <div class="card-body">
-                                <ul>
-                                    <li v-for="item in people"> {{ item }} </li>
-                                </ul>   
-                                <input class="form-control" class="col-sm" v-model="name" v-on:keyup.enter="addName">
+                                <div >
+                                    <ul>
+                                        <li v-for="item in people"> {{ item }} </li>
+                                    </ul>   
+                                    <input class="form-control" class="col-sm" v-model="name" v-on:keyup.enter="addName">
+                                </div>
                         </div>
                 </div>
-                        
+           <!-- otra caja de texto -->             
+                <div class="card">
+                        <div class="card-header">
+                            Enlazar con V-BIND
+                        </div>
+                        <div class="card-body">
+                         
+                                    <input type="text" class="form-control" v-model="inputinfo">
+                                    <p v-bind:title="inputinfo"><span  class="text-warning">texto de relleno..<span> <u> {{inputinfo}} </u></p>
                             
+                        </div>
+                </div>             
                       
            
         </div>    
             
               
-    </div>
+    
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.0/vue.js"></script>
 
@@ -43,8 +55,9 @@
         new Vue({
             el:'#main',
             data:{
-                people: ['Lynda','Isabella','Diana','Luisa']
+                people: ['Lynda','Isabella','Diana','Luisa'] , inputinfo:''
             },
+
             name:'',
             methods:
             {
@@ -53,6 +66,8 @@
                         this.name='';
                     }
             }
+
+          
         });
     </script>
 </body>
